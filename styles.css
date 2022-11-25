@@ -1,0 +1,115 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.campo{
+  position: fixed;
+
+  width: 500px;
+  height: 300px;  
+  background-color: green;
+  border: 5px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease;
+}
+
+.meio{
+  position: relative;
+  background: white;
+  width: 5px;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meio::before, .meio::after{
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 5px solid white;
+  border-radius: 50%;
+}
+
+.meio::after{
+  width: 0;
+  height: 0;
+}
+
+.area{
+  position: absolute;
+  background: green;
+  width: 125px;
+  height: 200px;
+  border: 5px solid white;
+  left: 0;
+  border-left: none;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 1;
+}
+
+.area.direita{
+  left: auto;
+  right: 0;
+  border-left: inherit;
+  border-right: none;
+}
+
+.area::before{
+  content: "";
+  position: absolute;
+  border: 5px solid white;
+  width: 75px;
+  height: 125px;
+  border-left: none;
+}
+
+.area.direita::before{
+  right: 0;
+  border-left: inherit;
+  border-right: none;
+}
+
+.circulos{
+  position: absolute;
+  width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.circulos::before,
+.circulos::after{
+  content: "";
+  position: absolute;
+  border: 5px solid white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.circulos::after{
+  right: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .campo{
+    transform: rotate(90deg);
+  }
+}
